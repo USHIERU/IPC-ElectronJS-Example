@@ -3,7 +3,7 @@ const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 const Datastore = require('nedb');
 
-var database;
+let database;
 
 function createWindow() {
   // Create the browser window.
@@ -51,12 +51,12 @@ ipcMain.on('create-database', (event, arg) => {
 });
 
 ipcMain.on('create-user', (event, arg) => {
-  var doc = {
+  let doc = {
     name: arg.user,
     password: arg.password
   };
 
-  database.insert(doc, function (err, newDoc) {
+  database.insert(doc, (err, newDoc) => {
     if (err)
       event.reply('create-user-reply', 'Error al Crear Usuario');
 

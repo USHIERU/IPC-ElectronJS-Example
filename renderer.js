@@ -12,7 +12,7 @@ let createUser = document.getElementById("createUser");
 var user = document.getElementById("user");
 var password = document.getElementById("password");
 
-// LAUNCH LISTENERS WITH EVENTS
+// SEND EVENTS
 createDB.addEventListener("click", function () {
     ipcRenderer.send('create-database', 'users');
 });
